@@ -1,2 +1,2 @@
 # varpool
-Repository for variance pooling archteicture for CPath
+Repository for variance pooling architecture for CPath
