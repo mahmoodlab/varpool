@@ -1,6 +1,6 @@
 # Incorporating intratumoral heterogeneity into weakly-supervised deep learning models via variance pooling
 
-
+Carmichael, I.\*, Song, A.H.\*, Chen, R.J., Williamson, D.F.K., Chen, T.Y., Mahmood, F. [Incorporating intratumoral heterogeneity into weakly-supervised deep learning models via variance pooling](https://arxiv.org/pdf/2206.08885.pdf). The International Conference on Medical Image Computing and Computer Assisted Intervention (MICCAI), 2022
 
 
 **Abstract**: Supervised learning tasks such as cancer survival prediction
@@ -14,10 +14,9 @@ improves survival prediction performance for five cancer types.
 
 ![varpool](mean_and_var_pool_arch.png)
 
-Carmichael, I., Song, A.H., Chen, R.J., Williamson, D.F.K., Chen, T.Y., Mahmood, F. (2022). [Incorporating intratumoral heterogeneity into weakly-supervised deep learning models via variance pooling](https://arxiv.org/pdf/2206.08885.pdf). The International Conference on Medical Image Computing and Computer Assisted Intervention.
+
 
 # Setup
-
 
 
 # 1. Downloading TCGA Data
@@ -42,15 +41,21 @@ DATA_ROOT_DIR/
 
 # 3. Run experiments
 
+1. This step downloads the necessary clinical data csv file (slide names, clinical endpoints)
 
 ```bash
 python tcga_scripts/download_tcga_clinical_data.py --save_dir <DATA_ROOT_DIR>/clinical_data --merge_coadread_gbmlgg
+```
 
+2. Next step is to run variance pooling experiment. Currently the available options are
+- **task**: Refers to the options for the loss functions **rank_surv** (ranking loss) or **cox_surv** (cox proportional hazard loss)
+- **arch_kind**: Refers to the options for the MIL architectures **amil** (Attention-based MIL), **deepsets** (average pooling MIL), or **patch_gcn** (Graph Convolutional Network MIL)
+```bash
 python run_all_fits.py --feats_top_dir <DATA_ROOT_DIR> --<OUTPUT_DIR> <OUTPUT_DIR> --task rank_surv --arch_kind amil --cuda 0
+```
 
-python run_all_fits.py --feats_top_dir <DATA_ROOT_DIR> --<OUTPUT_DIR> <OUTPUT_DIR> --task rank_surv --arch_kind deepsets --cuda 0
 
-python run_all_fits.py --feats_top_dir <DATA_ROOT_DIR> --<OUTPUT_DIR> <OUTPUT_DIR> --task rank_surv --arch_kind patch_gcn --cuda 0
-
+3. This command can help you visualize the most important patches along the variance projection directions.
+```bash
 python run_viz_top_patches.py
 ```
