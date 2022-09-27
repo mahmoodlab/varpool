@@ -1,6 +1,6 @@
 # Incorporating intratumoral heterogeneity into weakly-supervised deep learning models via variance pooling
 
-Carmichael, I.\*, Song, A.H.\*, Chen, R.J., Williamson, D.F.K., Chen, T.Y., Mahmood, F. [Incorporating intratumoral heterogeneity into weakly-supervised deep learning models via variance pooling](https://arxiv.org/pdf/2206.08885.pdf). The International Conference on Medical Image Computing and Computer Assisted Intervention (MICCAI), 2022
+**Carmichael, I.**\*, **Song, A.H.**\*, Chen, R.J., Williamson, D.F.K., Chen, T.Y., Mahmood, F. [Incorporating intratumoral heterogeneity into weakly-supervised deep learning models via variance pooling](https://arxiv.org/pdf/2206.08885.pdf). The International Conference on Medical Image Computing and Computer Assisted Intervention (MICCAI), 2022
 
 
 **Abstract**: Supervised learning tasks such as cancer survival prediction
@@ -14,7 +14,8 @@ improves survival prediction performance for five cancer types.
 
 ![varpool](mean_and_var_pool_arch.png)
 
-
+# Updates
+Please follow this GitHub for more updates.
 
 # Setup
 
@@ -58,4 +59,17 @@ python run_all_fits.py --feats_top_dir <DATA_ROOT_DIR> --<OUTPUT_DIR> <OUTPUT_DI
 3. This command can help you visualize the most important patches along the variance projection directions.
 ```bash
 python run_viz_top_patches.py
+```
+
+# License & Usage
+If you find our work useful in your research, please consider citing our paper at:
+```
+@inproceedings{carmichael2022incorporating,
+  title={Incorporating intratumoral heterogeneity into weakly-supervised deep learning models via variance pooling},
+  author={Carmichael, Iain and Song, Andrew H and Chen, Richard J and Williamson, Drew FK and Chen, Tiffany Y and Mahmood, Faisal},
+  booktitle={International Conference on Medical Image Computing and Computer-Assisted Intervention},
+  pages={387--397},
+  year={2022},
+  organization={Springer}
+}
 ```
